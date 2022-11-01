@@ -38,6 +38,18 @@ setListContact(copy)
 
 }
 
+const deleteContact = (contactId) => {
+
+  const filteredContacts = listContact.filter((eachContact) =>{
+    if(eachContact.id === contactId ){
+      return false
+    } else {
+      return true
+    }
+  })
+
+  setListContact(filteredContacts)
+}
 
   return (
     <div className="App">
@@ -56,6 +68,7 @@ setListContact(copy)
           <th>Popularity</th>
           <th>Won Oscar</th>
           <th>Won Emmy</th>
+          <th>Actions</th>
           </tr>
         <tr>
           <td><img src={eachContact.pictureUrl} alt="{eachContact.name}" width="50px"/></td>
@@ -63,6 +76,7 @@ setListContact(copy)
           <td>{eachContact.popularity.toFixed(2)}</td>
           <td>{eachContact.wonOscar === true ? <p>🏆</p> : false}</td>
           <td>{eachContact.wonEmmy === true ? <p>🏆</p> : false}</td>
+          <button onClick={() => deleteContact(eachContact.id)}>Delete Contact</button>
         </tr>
             </table>
       )
