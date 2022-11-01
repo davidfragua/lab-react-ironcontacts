@@ -19,15 +19,32 @@ const addToContacts = () =>{
   copy.push(contactRandom)
 
   setListContact(copy)
-
 }
 
+const sortPopularity = () =>{
+  const copy = listContact.map((eachContact) => eachContact)
+  
+  copy.sort((a,b) => a.popularity < b.popularity ? 1 : -1)
+
+  setListContact(copy)
+}
+
+const sortName = () => {
+const copy = [...listContact]
+
+copy.sort((a,b) => a.name > b.name ? 1 : -1)
+
+setListContact(copy)
+
+}
 
 
   return (
     <div className="App">
       <h2>IronContacts</h2>
       <button onClick={addToContacts}>Add Random Contact</button>
+      <button onClick={sortPopularity}>Sort by popularity</button>
+      <button onClick={sortName}>Sort by name</button>
       <br />
 
     {listContact.map((eachContact) => {
