@@ -6,16 +6,31 @@ import { useState } from "react"
 
 function App() {
 
-  const contacts = contactArr.slice(0,5)
+const contacts = contactArr.slice(0,5)
 
-// const [ list, setList ] = useState(contacts)
+const [ listContact, setListContact ] = useState(contacts)
+
+const addToContacts = () =>{
+  const randomIndex = Math.floor(Math.random() * contactArr.length)
+  const contactRandom = contactArr[randomIndex]
+
+  const copy = listContact.map((eachContact) => eachContact)
+
+  copy.push(contactRandom)
+
+  setListContact(copy)
+
+}
 
 
 
   return (
     <div className="App">
       <h2>IronContacts</h2>
-    {contacts.map((eachContact) => {
+      <button onClick={addToContacts}>Add Random Contact</button>
+      <br />
+
+    {listContact.map((eachContact) => {
       return (
         <table>
           <tr>
