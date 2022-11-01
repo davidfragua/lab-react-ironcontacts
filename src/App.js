@@ -54,9 +54,9 @@ const deleteContact = (contactId) => {
   return (
     <div className="App">
       <h2>IronContacts</h2>
-      <button onClick={addToContacts}>Add Random Contact</button>
-      <button onClick={sortPopularity}>Sort by popularity</button>
-      <button onClick={sortName}>Sort by name</button>
+      <button className="btn-add-sort" onClick={addToContacts}>Add Random Contact</button>
+      <button className="btn-add-sort" onClick={sortPopularity}>Sort by popularity</button>
+      <button className="btn-add-sort" onClick={sortName}>Sort by name</button>
       <br />
 
     {listContact.map((eachContact) => {
@@ -76,7 +76,7 @@ const deleteContact = (contactId) => {
           <td>{eachContact.popularity.toFixed(2)}</td>
           <td>{eachContact.wonOscar === true ? <p>🏆</p> : false}</td>
           <td>{eachContact.wonEmmy === true ? <p>🏆</p> : false}</td>
-          <button onClick={() => deleteContact(eachContact.id)}>Delete Contact</button>
+          <button onClick={() => deleteContact(eachContact.id)}>Delete</button>
         </tr>
             </table>
       )
